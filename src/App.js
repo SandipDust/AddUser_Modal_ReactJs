@@ -13,10 +13,15 @@ function App() {
     });
   };
 
+  //Updating List while deleting!
+  const updateListOnDelete = (updatedUsers) =>{
+    setUsersList(updatedUsers)
+  };
+
   return (
     <div>
       <AddUser onAddUser={addUserHandler}/>
-      <UsersList users={usersList}/>
+      <UsersList users={usersList} onDelete={updateListOnDelete}/>
     </div>
   );
 }
