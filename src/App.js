@@ -7,6 +7,7 @@ import UsersList from "./components/Users/UsersList";
 function App() {
   const [usersList, setUsersList] = useState([]);
 
+  //Adding users
   const addUserHandler = (uName, uAge) =>{
     setUsersList((prevState) =>{
       return [...prevState, {name:uName, age:uAge, id:Math.random().toString()}]
@@ -14,8 +15,11 @@ function App() {
   };
 
   //Updating List while deleting!
-  const updateListOnDelete = (updatedUsers) =>{
-    setUsersList(updatedUsers)
+  const updateListOnDelete = (id) =>{
+    setUsersList((prevState) => {
+      const updatedUsers = prevState.filter((user) => user.id !== id)
+      return updatedUsers;
+    })
   };
 
   return (

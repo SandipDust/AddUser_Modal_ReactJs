@@ -5,10 +5,8 @@ import classes from './UsersList.module.css';
 
 
 const UsersList = (props) =>{
-    //Function to delete a particular name
     const deleteHandler = (index) =>{
-        const updatedUsers = props.users.filter((user) => user.id !== index)
-        props.onDelete(updatedUsers);
+        props.onDelete(index);
     }
     return(
         <Card className={classes.users}>
